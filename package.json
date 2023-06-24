@@ -1,0 +1,31 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@sidebase/nuxt-auth": "^0.6.0-beta.2",
+    "@types/node": "^18",
+    "nuxt": "^3.6.0",
+    "typescript": "latest"
+  },
+  "dependencies": {
+    "@nuxtjs/tailwindcss": "^6.8.0",
+    "@solana/wallet-adapter-wallets": "^0.19.17",
+    "@solana/web3.js": "^1.77.3",
+    "arweave": "^1.13.7",
+    "axios": "^1.4.0",
+    "bs58": "^5.0.0",
+    "buffer": "^6.0.3",
+    "next-auth": "^4.22.1",
+    "primevue": "^3.29.2",
+    "solana-wallets-vue": "^0.6.0",
+    "tweetnacl": "^1.0.3"
+  }
+}

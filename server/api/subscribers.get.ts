@@ -2,7 +2,7 @@ import { JsonDB } from "../utils/json_db";
 
 export default defineEventHandler(async (event) => {
   try {
-    const db = new JsonDB("/Users/yusuf/coding/hacker_weekend/underdog-memeletter/db.json");
+    const db = new JsonDB("/Users/aswin/Documents/underdog-memeletter/db.json");
 
     const subscribers: string[] = db.readOne("subscribers");
 

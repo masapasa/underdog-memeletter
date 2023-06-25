@@ -75,8 +75,6 @@ watch(
                     severity: "success",
                     detail: "Logged in"
                 })
-
-                //TODO: add security layer with message signing
                 const res = await $fetch<{
                     statusCode: number;
                     message: string;

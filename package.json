@@ -24,6 +24,7 @@
     "bs58": "^5.0.0",
     "buffer": "^6.0.3",
     "next-auth": "^4.22.1",
+    "openai": "^3.3.0",
     "primevue": "^3.29.2",
     "solana-wallets-vue": "^0.6.0",
     "tweetnacl": "^1.0.3"

@@ -9,47 +9,44 @@ export default defineEventHandler(async (event) => {
 
         const createNFTBodyParams: CreateNFTBodyParams = (await readBody(event)) as CreateNFTBodyParams;
 
-        const arweave = Arweave.init({
-            host: "arweave.net",
-            port: 443,
-            protocol: "https",
-            timeout: 20000,
-            logging: false,
-        })
+        // const arweave = Arweave.init({
+        //     host: "arweave.net",
+        //     port: 443,
+        //     protocol: "https",
+        //     timeout: 20000,
+        //     logging: false,
+        // })
 
-        const transaction = await arweave.createTransaction({
-            data: Buffer.from(
-                createNFTBodyParams.image.split(",")[1],
-                "base64"
-            ),
-        });
+        // const transaction = await arweave.createTransaction({
+        //     data: Buffer.from(
+        //         createNFTBodyParams.image.split(",")[1],
+        //         "base64"
+        //     ),
+        // });
 
-        transaction.addTag("Content-Type", "image/png");
+        // transaction.addTag("Content-Type", "image/png");
 
-        const wallet = JSON.parse(config.arWallet)
+        // const wallet = JSON.parse(config.arWallet)
 
-        await arweave.transactions.sign(transaction, wallet);
+        // await arweave.transactions.sign(transaction, wallet);
 
-        const response = await arweave.transactions.post(transaction);
+        // const response = await arweave.transactions.post(transaction);
 
-        const id = transaction.id;
-        const imageUrl = id ? `https://arweave.net/${id}` : undefined;
+        // const id = transaction.id;
+        // const imageUrl = id ? `https://arweave.net/${id}` : undefined;
 
-        if (!imageUrl) {
-            return {
-                statusCode: 500,
-                message: "Image upload failed",
-            };
-        }
+        // if (!imageUrl) {
+        //     return {
+        //         statusCode: 500,
+        //         message: "Image upload failed",
+        //     };
+        // }
 
 
-        const db = new JsonDB("/Users/yusuf/coding/hacker_weekend/underdog-memeletter/db.json");
+        const db = new JsonDB("/Users/aswin/Documents/underdog-memeletter/db.json");
         const subscribers: string[] = db.readOne("subscribers");
 
-        await underdog.nftsBatch(subscribers, {
-            ...createNFTBodyParams,
-            image: imageUrl,
-        })
+        await underdog.nftsBatch(subscribers,createNFTBodyParams)
 
         return {
             statusCode: 200,

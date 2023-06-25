@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     underdogApiKey: process.env.API_KEY,
     arWallet: process.env.AR_WALLET,
     authSecret: process.env.AUTH_SECRET,
+    openaiApiKey: process.env.OPENAI_API_KEY,
     // Public
     public: {
       projectId: process.env.PROJECT_ID,

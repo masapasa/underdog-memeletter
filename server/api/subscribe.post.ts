@@ -5,7 +5,7 @@ export default defineEventHandler(async (event) => {
     const sessionData = await isAuthenticated(event);
     const publicKey = sessionData.user?.name;
 
-    const db = new JsonDB("/Users/yusuf/coding/hacker_weekend/underdog-memeletter/db.json");
+    const db = new JsonDB("/Users/aswin/Documents/underdog-memeletter/db.json");
 
     if (db.readOne("subscribers").includes(publicKey)) {
       return {

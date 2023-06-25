@@ -48,6 +48,7 @@ export class UnderdogAPI {
       });
       return response.data;
     } catch (error) {
+      console.log("error" , error);
       throw new Error(`API request failed: ${error}`);
     }
   }
@@ -66,18 +67,13 @@ export class UnderdogAPI {
   }
 
   async nftsBatch(recipients: string[], nft: CreateNFTBodyParams) {
-    const url = `v2/projects/t/2/nfts/batch`;
+    const url = `v2/projects/t/1/nfts/batch`;
 
     return this.makePostRequest<{}, CreateNFTBodyParams[]>(
       url,
       recipients.map((recipient) => {
         return {
           ...nft,
-          attributes: [
-            {
-
-            }
-          ],
           receiverAddress: recipient,
           upsert: true,
         };
